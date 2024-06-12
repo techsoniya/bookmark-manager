@@ -1,0 +1,23 @@
+cd bookmark-manager
+npm i
+go to mongodb atlas
+see you are logged in as soniyakambli
+open the project
+create cluster
+copy password and connection string
+add to the code 
+node server.js 
+cntrl c 
+npm start
+
+browsre : http://localhost:3000
+add edit or delete data here
+
+
+
+w5YJUAvPYY8DH86j
+
+
+
+
+mongodb+srv://kamblisoniya:veftT8Sahy7oWKyq@cluster2.6cmx2na.mongodb.net/

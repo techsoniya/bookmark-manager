@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('1.jpg'); /* Change 'background.jpg' to your image file name */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: cadetblue transparent 80px;
+     /*background: bluex  */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size:3em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+form input,
+form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #a6eaf5;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #ba4254;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.entry {
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.entry strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.entry p {
+    margin: 0 0 0.5em 0;
+    color: #666;
+}
+
+.entry small {
+    display: block;
+    color: #999;
+}
+
+.actions {
+    margin-top: 0.5em;
+}
+
+.actions button {
+    margin-right: 0.5em;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: #73cc88;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background-color: #218838;
+}
+
+.actions button:last-child {
+    background-color: #79dae6;
+}
+
+.actions button:last-child:hover {
+    background-color: #c82333;
+}

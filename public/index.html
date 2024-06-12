@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bookmarks</h1>
+        <form id="guestbook-form">
+            <input type="text" id="name" placeholder="Bookmark Title" required>
+            <textarea id="message" placeholder="Link" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="entries"></div>
+    </div>
+    <script>
+        const form = document.getElementById('guestbook-form');
+        const entriesDiv = document.getElementById('entries');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            const response = await fetch('/api/entries', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, message })
+            });
+
+            if (response.ok) {
+                loadEntries();
+                form.reset();
+            }
+        });
+
+        async function loadEntries() {
+            const response = await fetch('/api/entries');
+            const entries = await response.json();
+
+            entriesDiv.innerHTML = '';
+            entries.forEach(entry => {
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'entry';
+                entryDiv.innerHTML = `
+                    <strong>${entry.name}</strong>
+                    <p>${entry.message}</p>
+                    <small>${new Date(entry.date).toLocaleString()}</small>
+                    <div class="actions">
+                        
+                        <button onclick="editEntry('${entry._id}')">Edit</button>
+                        <button onclick="deleteEntry('${entry._id}')">Delete</button>
+                    </div>
+                `;
+                entriesDiv.appendChild(entryDiv);
+            });
+        }
+
+        async function deleteEntry(id) {
+            const response = await fetch(`/api/entries/${id}`, { method: 'DELETE' });
+            if (response.ok) {
+                loadEntries();
+            }
+        }
+
+        async function editEntry(id) {
+            const name = prompt('Enter new Bookmark Title:');
+            const message = prompt('Enter new Link:');
+            if (name && message) {
+                const response = await fetch(`/api/entries/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, message })
+                });
+                if (response.ok) {
+                    loadEntries();
+                }
+            }
+        }
+
+        loadEntries();
+    </script>
+</body>
+</html>
