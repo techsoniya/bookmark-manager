@@ -8,6 +8,6 @@
 npm install 
 4.run backend 
   node server.run
-6. visit
+5. visit
     http://localhost:3000
 
