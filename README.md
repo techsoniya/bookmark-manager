@@ -3,12 +3,11 @@
 
 
 1.Clone the repository
-2.Get the connection string from mongodb atlas along with password and update the MONGODBURL with 
-    "your" connection string.
+2.Get the connection string from mongodb atlas along with password and update the MONGODBURL with "your" connection string.
 3.Install all requirements
-    npm install 
+npm install 
 4.run backend 
-     node server.run
+node server.run
 5.visit
-    http://localhost:3000
+http://localhost:3000
 
